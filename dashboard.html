@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Admission Test Dashboard</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css"
+    />
+    <link rel="stylesheet" href="css/dashboard.css?v=admission-v21" />
+  </head>
+  <body>
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <span class="brand-logo">
+          <img src="Image/logo%20al%20azhar%203.png" alt="Al Azhar" />
+        </span>
+        <span class="brand-copy">
+          <strong>Admission Test</strong>
+          <small>Al Azhar Kelapa Gading</small>
+        </span>
+      </div>
+      <nav>
+        <div class="nav-section">
+          <p class="nav-heading">Admission Management</p>
+          <button
+            type="button"
+            data-section="units"
+            class="nav-link is-active"
+          >
+            <span class="nav-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="3" width="7" height="7" rx="1" />
+                <rect x="14" y="3" width="7" height="7" rx="1" />
+                <rect x="3" y="14" width="7" height="7" rx="1" />
+                <rect x="14" y="14" width="7" height="7" rx="1" />
+              </svg>
+            </span>
+            <span>Units</span>
+          </button>
+          <button type="button" data-section="banks" class="nav-link">
+            <span class="nav-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M9 6h11M9 12h11M9 18h11" />
+                <path d="m3 6 1 1 2-2M3 12l1 1 2-2M3 18l1 1 2-2" />
+              </svg>
+            </span>
+            <span>Question Banks</span>
+          </button>
+        </div>
+        <div class="nav-section">
+          <p class="nav-heading">Exam &amp; Results</p>
+          <button type="button" data-section="results" class="nav-link">
+            <span class="nav-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M6 3h9l4 4v14H6z" />
+                <path d="M14 3v5h5M9 13h6M9 17h6" />
+              </svg>
+            </span>
+            <span>Test Results</span>
+          </button>
+          <button type="button" data-section="tokens" class="nav-link">
+            <span class="nav-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="8" cy="15" r="4" />
+                <path d="m11 12 8-8M16 4l4 4M14 9l2 2" />
+              </svg>
+            </span>
+            <span>Exam Token</span>
+          </button>
+        </div>
+      </nav>
+      <div class="sidebar-bottom">
+        <button type="button" id="logoutButton" class="nav-link">
+          <span class="nav-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M10 17l5-5-5-5M15 12H3M14 4h6v16h-6" />
+            </svg>
+          </span>
+          <span>Logout</span>
+        </button>
+      </div>
+    </aside>
+
+    <main class="dashboard-main">
+      <header class="dashboard-header">
+        <div class="dashboard-title">
+          <h1 id="pageTitle">Units</h1>
+          <small>Alazka Admission</small>
+        </div>
+        <div class="admin-profile-menu">
+          <button
+            type="button"
+            class="admin-profile"
+            id="adminProfileButton"
+            aria-expanded="false"
+            aria-haspopup="menu"
+            aria-controls="adminProfileDropdown"
+          >
+            <span class="admin-copy">
+              <strong id="adminName">Administrator</strong>
+              <span><i>Admin</i> Admission Staff</span>
+            </span>
+            <span class="admin-avatar" aria-hidden="true">AD</span>
+            <svg class="admin-profile-chevron" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="m7 9.5 5 5 5-5"></path>
+            </svg>
+          </button>
+          <div class="admin-profile-dropdown" id="adminProfileDropdown" role="menu" hidden>
+            <button type="button" id="profileLogoutButton" role="menuitem">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M10 5H5v14h5M14 8l4 4-4 4M18 12H9"></path>
+              </svg>
+              <span>Sign Out</span>
+            </button>
+          </div>
+        </div>
+      </header>
+      <div class="dashboard-content">
+        <p class="flash" id="flash" role="status"></p>
+        <nav class="breadcrumb" id="breadcrumb" aria-label="Breadcrumb"></nav>
+        <section id="app" aria-live="polite"></section>
+      </div>
+    </main>
+
+    <div class="modal-layer" id="modal" hidden>
+      <section class="admin-modal" role="dialog" aria-modal="true">
+        <button
+          type="button"
+          class="modal-close"
+          data-close-modal
+          aria-label="Close"
+        >
+          &times;
+        </button>
+        <div id="modalContent"></div>
+      </section>
+    </div>
+
+    <dialog class="admin-image-preview" id="adminImagePreview" aria-label="Image preview">
+      <button type="button" class="admin-image-preview-close" id="adminImagePreviewClose" aria-label="Close image preview">&times;</button>
+      <img id="adminImagePreviewImage" alt="" />
+    </dialog>
+
+    <div class="modal-layer" id="latexModal" hidden>
+      <section class="admin-modal latex-modal" role="dialog" aria-modal="true">
+        <button
+          type="button"
+          class="modal-close"
+          data-close-latex
+          aria-label="Close"
+        >
+          &times;
+        </button>
+        <h2 id="latexModalTitle">Insert Math Formula</h2>
+        <label
+          >Formula (LaTeX)<textarea
+            id="latexInput"
+            rows="4"
+            placeholder="\frac{a}{b}"
+          ></textarea>
+        </label>
+        <div class="latex-library" aria-label="Formula templates">
+          <p>Quick formulas</p>
+          <div>
+            <button type="button" data-latex-preset="\frac{a}{b}">a/b</button>
+            <button type="button" data-latex-preset="1\frac{2}{3}">1 ⅔</button>
+            <button type="button" data-latex-preset="\sqrt{x}">√x</button>
+            <button type="button" data-latex-preset="\sqrt[n]{x}">ⁿ√x</button>
+            <button type="button" data-latex-preset="x^{2}">x²</button>
+            <button type="button" data-latex-preset="x^{n}">xⁿ</button>
+            <button type="button" data-latex-preset="\lim_{x \to a}">lim</button>
+            <button type="button" data-latex-preset="\int_{a}^{b} f(x)\,dx">∫</button>
+            <button type="button" data-latex-preset="\frac{d}{dx}">d/dx</button>
+            <button type="button" data-latex-preset="\sum_{i=1}^{n}">Σ</button>
+            <button type="button" data-latex-preset="\pi">π</button>
+            <button type="button" data-latex-preset="\infty">∞</button>
+            <button type="button" data-latex-preset="\le">≤</button>
+            <button type="button" data-latex-preset="\ge">≥</button>
+            <button type="button" data-latex-preset="\ne">≠</button>
+            <button type="button" data-latex-preset="\pm">±</button>
+            <button type="button" data-latex-preset="\theta">θ</button>
+            <button type="button" data-latex-preset="\to">→</button>
+          </div>
+        </div>
+        <p class="field-help">
+          Use braces to group values, for example: \frac{2}{3}, \sqrt{x + 1}, or
+          x^{10}.
+        </p>
+        <div class="latex-preview" id="latexPreview"></div>
+        <div class="modal-actions">
+          <button type="button" class="secondary" data-close-latex>
+            Cancel</button
+          ><button type="button" class="primary" id="insertLatex">
+            Insert
+          </button>
+        </div>
+      </section>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+    <script src="js/admission-api.js?v=admission-v6"></script>
+    <script src="js/dashboard.js?v=admission-v24"></script>
+  </body>
+</html>

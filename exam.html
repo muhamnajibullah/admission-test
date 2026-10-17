@@ -1,0 +1,394 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Admission Test | Al Azhar Kelapa Gading</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css"
+    />
+    <link rel="stylesheet" href="css/exam.css?v=admission-v19" />
+  </head>
+  <body>
+    <main
+      id="registrationPage"
+      class="entry-page"
+      aria-label="Student registration"
+    >
+      <div class="registration-splash" aria-hidden="true">
+        <img src="Image/download%20(12)%201.png" alt="" />
+      </div>
+      <div class="entry-layout">
+        <section class="entry-card">
+          <img
+            class="entry-logo"
+            src="Image/logo%20al%20azhar%203.png"
+            alt="Al Azhar Kelapa Gading"
+          />
+          <h1>Application Form</h1>
+          <p class="entry-subtitle">
+            Complete the required information to continue your admission test.
+          </p>
+          <div class="entry-rule"></div>
+          <form id="registrationForm">
+            <label
+              >Full Name<input
+                name="fullName"
+                type="text"
+                minlength="3"
+                maxlength="150"
+                autocomplete="name"
+                placeholder="Enter your full name"
+                required /></label
+            ><fieldset class="birth-field">
+              <legend>Date of Birth</legend>
+              <div class="birth-date-fields">
+                <input
+                  name="birthDay"
+                  type="text"
+                  inputmode="numeric"
+                  pattern="[0-9]{1,2}"
+                  maxlength="2"
+                  autocomplete="bday-day"
+                  placeholder="Day"
+                  aria-label="Birth day"
+                  required
+                />
+                <select
+                  name="birthMonth"
+                  autocomplete="bday-month"
+                  aria-label="Birth month"
+                  required
+                >
+                  <option value="">Month</option>
+                  <option value="1">January</option>
+                  <option value="2">February</option>
+                  <option value="3">March</option>
+                  <option value="4">April</option>
+                  <option value="5">May</option>
+                  <option value="6">June</option>
+                  <option value="7">July</option>
+                  <option value="8">August</option>
+                  <option value="9">September</option>
+                  <option value="10">October</option>
+                  <option value="11">November</option>
+                  <option value="12">December</option>
+                </select>
+                <input
+                  name="birthYear"
+                  type="text"
+                  inputmode="numeric"
+                  pattern="[0-9]{4}"
+                  maxlength="4"
+                  autocomplete="bday-year"
+                  placeholder="Year"
+                  aria-label="Birth year"
+                  required
+                />
+              </div>
+            </fieldset>
+            <div class="unit-field">
+              <label for="unitSelectButton">Unit</label>
+              <div class="searchable-select" id="unitSelectControl">
+                <input type="hidden" name="unitId" id="unitSelect" />
+                <button
+                  type="button"
+                  class="searchable-select-trigger"
+                  id="unitSelectButton"
+                  role="combobox"
+                  aria-expanded="false"
+                  aria-haspopup="listbox"
+                  aria-controls="unitOptions"
+                  disabled
+                >
+                  <span id="unitSelectText">Loading units...</span>
+                  <span class="searchable-select-chevron" aria-hidden="true"></span>
+                </button>
+                <div class="searchable-select-menu" id="unitSelectMenu" hidden>
+                  <div class="searchable-select-search">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                      <path d="m21 21-4.35-4.35m2.35-5.4A7.75 7.75 0 1 1 3.5 11.25a7.75 7.75 0 0 1 15.5 0Z"></path>
+                    </svg>
+                    <input
+                      type="search"
+                      id="unitSearch"
+                      placeholder="Search unit or city"
+                      autocomplete="off"
+                      aria-label="Search unit"
+                    />
+                  </div>
+                  <div class="searchable-select-options" id="unitOptions" role="listbox"></div>
+                  <p class="searchable-select-empty" id="unitEmpty" hidden>No matching units found.</p>
+                </div>
+              </div>
+            </div>
+            <p class="form-error" role="alert"></p>
+            <button type="submit" class="primary">Continue</button>
+          </form>
+          <footer class="registration-footer">
+            <span>&copy; 2026 Divisi Pengembangan Alazka</span>
+            <span>Contact Us</span>
+          </footer>
+        </section>
+        <aside class="visual-side" aria-hidden="true">
+          <img src="Image/download%20(12)%201.png" alt="" />
+        </aside>
+      </div>
+    </main>
+
+    <main id="tokenPage" class="entry-page access-page" aria-label="Exam access" hidden>
+      <div class="entry-layout">
+        <section class="entry-card token-card">
+          <button type="button" class="access-back" id="tokenBackButton" aria-label="Back to application form"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 5-7 7 7 7"></path></svg></button>
+          <img
+            class="entry-logo"
+            src="Image/logo%20al%20azhar%203.png"
+            alt="Al Azhar Kelapa Gading"
+          />
+          <p class="eyebrow">Selection Test Access</p>
+          <h1>Enter Exam Token</h1>
+          <p class="entry-subtitle">
+            Use the active token from the admission admin to open your
+            selection test.
+          </p>
+          <strong id="registrationNumber" hidden></strong>
+          <form id="tokenForm">
+            <label
+              >Exam Token<input
+                name="token"
+                type="text"
+                inputmode="numeric"
+                pattern="[0-9]{4}"
+                maxlength="4"
+                autocomplete="one-time-code"
+                placeholder="Enter 4 digit token"
+                required
+            /></label>
+            <p class="form-error" role="alert"></p>
+            <button type="submit" class="primary">Continue</button>
+          </form>
+        </section>
+        <aside class="visual-side" aria-hidden="true">
+          <img src="Image/download%20(12)%201.png" alt="" />
+        </aside>
+      </div>
+    </main>
+
+    <main id="previewPage" class="entry-page access-page" aria-label="Exam preview" hidden>
+      <div class="entry-layout">
+        <section class="entry-card preview-card">
+          <img class="entry-logo" src="Image/logo%20al%20azhar%203.png" alt="Al Azhar Kelapa Gading" />
+          <p class="eyebrow">Selection Test Guide</p>
+          <h1>Before You Start</h1>
+          <p class="preview-intro">
+            The selection test has a total duration of
+            <strong id="previewDuration">0 minutes</strong>. The timer starts
+            after you press Start Test.
+          </p>
+          <div class="preview-summary">
+            <strong>Multiple Choice</strong>
+            <span><b id="previewQuestionCount">0</b> questions, scored automatically.</span>
+          </div>
+          <p class="preview-note">You will answer all available questions for this test.</p>
+          <p class="form-error" id="previewError" role="alert"></p>
+          <button type="button" class="primary preview-start" id="startTestButton">Start Test</button>
+        </section>
+      </div>
+    </main>
+
+    <main id="examPage" class="exam-page" aria-label="Admission exam" hidden>
+      <header class="exam-header">
+        <div class="exam-header-main">
+          <img
+            class="exam-header-logo"
+            src="Image/logo al azhar 3.png"
+            alt="Al Azhar Kelapa Gading"
+          />
+        </div>
+        <button
+          class="mobile-navigation-toggle"
+          id="mobileNavigationToggle"
+          type="button"
+          aria-label="Open question navigation"
+          aria-controls="questionNavigation"
+          aria-expanded="false"
+        >
+          <span></span><span></span><span></span>
+        </button>
+        <div class="exam-header-status">
+          <div class="candidate-identity">
+            <strong id="candidateName"></strong>
+            <span id="unitLine"></span>
+          </div>
+          <div class="timer" id="timer">00:00</div>
+        </div>
+      </header>
+      <div class="exam-layout">
+        <section class="question-area">
+          <div class="question-meta">
+            <span class="question-heading">
+              <span id="questionLabel">QUESTION 1</span>
+              <button class="exam-image-reload" id="reloadQuestionImages" type="button" title="Reload images in this question">Reload Image</button>
+            </span>
+            <span class="save-state" id="saveState">Saved</span>
+          </div>
+          <article class="question-panel">
+            <div id="questionContent"></div>
+            <button class="flag-button" id="flagButton" type="button">
+              Flag
+            </button>
+          </article>
+          <div class="answer-panel">
+            <p>Select your answer</p>
+            <div id="answerOptions"></div>
+          </div>
+          <footer class="exam-actions">
+            <button type="button" class="secondary" id="previousButton">
+              &lsaquo; Previous</button
+            ><span id="progressText"></span
+            ><button type="button" class="primary" id="nextButton">
+              Next &rsaquo;</button
+            ><button type="button" class="primary" id="submitButton" hidden>
+              Submit Exam
+            </button>
+          </footer>
+        </section>
+        <aside class="question-navigation" id="questionNavigation">
+          <header class="question-navigation-header">
+            <div>
+              <h2>Question navigation</h2>
+              <p id="answeredCount">0 answered</p>
+            </div>
+            <button
+              type="button"
+              class="mobile-navigation-close"
+              id="mobileNavigationClose"
+              aria-label="Close question navigation"
+            >
+              &times;
+            </button>
+          </header>
+          <div class="number-grid" id="numberGrid"></div>
+          <div class="legend">
+            <span><i class="answered"></i>Answered</span
+            ><span><i class="flagged"></i>Flagged</span
+            ><span><i></i>Unanswered</span>
+          </div>
+          <button
+            type="button"
+            class="secondary review-button"
+            id="reviewButton"
+          >
+            Review answers
+          </button>
+        </aside>
+      </div>
+      <button
+        type="button"
+        class="mobile-navigation-backdrop"
+        id="mobileNavigationBackdrop"
+        aria-label="Close question navigation"
+      ></button>
+    </main>
+
+    <div class="exam-dialog-layer" id="examConfirmDialog" hidden>
+      <section
+        class="exam-confirm-dialog"
+        role="alertdialog"
+        aria-modal="true"
+        aria-labelledby="examConfirmTitle"
+        aria-describedby="examConfirmMessage"
+      >
+        <button
+          type="button"
+          class="exam-confirm-close"
+          id="examConfirmClose"
+          aria-label="Cancel confirmation"
+        >
+          &times;
+        </button>
+        <div class="exam-confirm-icon" aria-hidden="true">?</div>
+        <h2 id="examConfirmTitle"></h2>
+        <p id="examConfirmMessage"></p>
+        <footer>
+          <button type="button" class="secondary" id="examConfirmCancel">
+            Cancel
+          </button>
+          <button type="button" class="primary" id="examConfirmAccept">
+            Confirm
+          </button>
+        </footer>
+      </section>
+    </div>
+
+    <dialog class="exam-image-preview" id="examImagePreview" aria-label="Image preview">
+      <div class="exam-image-preview-toolbar">
+        <button type="button" id="examImagePreviewClose" aria-label="Close image preview">&times;</button>
+      </div>
+      <img id="examImagePreviewImage" alt="" />
+    </dialog>
+
+    <main id="reviewPage" class="review-page" aria-label="Review answers" hidden>
+      <div class="review-shell">
+        <button type="button" class="review-back" id="reviewBackButton"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 5-7 7 7 7"></path></svg><span>Back to questions</span></button>
+        <section class="review-card">
+          <div class="review-heading-icon">&#10003;</div>
+          <h1>Review before submitting</h1>
+          <p id="reviewExamTitle"></p>
+          <div class="review-stats">
+            <div><strong id="reviewAnswered">0</strong><span>Answered</span></div>
+            <div><strong id="reviewUnanswered">0</strong><span>Unanswered</span></div>
+            <div><strong id="reviewFlagged">0</strong><span>Flagged</span></div>
+            <div><strong id="reviewTotal">0</strong><span>Total questions</span></div>
+          </div>
+          <div class="review-progress-copy"><span>Answer completeness</span><strong id="reviewPercent">0%</strong></div>
+          <div class="review-progress"><span id="reviewProgressBar"></span></div>
+          <div class="review-warning" id="reviewWarning">Some questions are unanswered. Unanswered questions will receive no score.</div>
+          <h2>Question summary</h2>
+          <div class="review-question-grid" id="reviewQuestionGrid"></div>
+          <footer class="review-actions">
+            <button type="button" class="secondary" id="reviewAgainButton">Review again</button>
+            <button type="button" class="primary" id="confirmSubmitButton">Submit answers</button>
+          </footer>
+        </section>
+      </div>
+    </main>
+
+    <main
+      id="completePage"
+      class="entry-page access-page"
+      aria-label="Exam completion"
+      hidden
+    >
+      <div class="entry-layout">
+        <section class="entry-card complete-card">
+          <img
+            class="entry-logo"
+            src="Image/logo%20al%20azhar%203.png"
+            alt="Al Azhar Kelapa Gading"
+          />
+          <div class="complete-icon">&#10003;</div>
+          <p class="eyebrow">Submission received</p>
+          <h1>Exam Completed</h1>
+          <p class="entry-subtitle">
+            Your answers were securely submitted. Please keep your registration
+            number.
+          </p>
+          <strong
+            class="registration-number"
+            id="completeRegistration"
+          ></strong>
+          <a class="primary complete-home" href="exam.html"
+            >Back to Admission Form</a
+          >
+        </section>
+      </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+    <script src="js/admission-api.js?v=admission-v3"></script>
+    <script src="js/exam.js?v=admission-v14"></script>
+  </body>
+</html>

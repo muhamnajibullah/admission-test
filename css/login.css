@@ -1,3 +1,19 @@
+@font-face {
+  font-family: "Poppins";
+  src: url("../fonts/Poppins-Regular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("../fonts/Poppins-Bold.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 600 800;
+  font-display: swap;
+}
+
 :root {
   --teal-dark: #07343d;
   --teal: #0f5965;
@@ -20,6 +36,7 @@ body {
   min-height: 100vh;
   color: var(--ink);
   background: #f6f7f9;
+  font-family: "Poppins", Arial, sans-serif;
 }
 
 button,
@@ -57,6 +74,30 @@ input {
 .logo-wrap img {
   width: 64px;
   height: auto;
+}
+
+.login-breadcrumb {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin: -6px 0 18px;
+  color: #98a5b1;
+  font-size: 11px;
+}
+
+.login-breadcrumb a {
+  color: var(--teal-soft);
+  text-decoration: none;
+}
+
+.login-breadcrumb a:hover {
+  color: var(--teal);
+}
+
+.login-breadcrumb [aria-current="page"] {
+  color: #667888;
 }
 
 .login-copy {
@@ -104,7 +145,10 @@ input {
   border: 1px solid var(--line);
   border-radius: 8px;
   background: #f9fbfd;
-  transition: border-color 160ms ease, box-shadow 160ms ease, background 160ms ease;
+  transition:
+    border-color 160ms ease,
+    box-shadow 160ms ease,
+    background 160ms ease;
 }
 
 .input-shell.is-password {
@@ -155,6 +199,10 @@ input {
 .password-toggle svg {
   width: 18px;
   height: 18px;
+}
+
+.password-toggle.is-visible .eye-slash {
+  display: none;
 }
 
 .input-shell input::placeholder {

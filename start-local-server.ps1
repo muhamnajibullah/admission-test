@@ -42,4 +42,4 @@ Start-Process -FilePath $phpPath `
 
 Start-Sleep -Seconds 1
 Write-Host "PHP server started at http://127.0.0.1:8000"
-Write-Host "Open http://127.0.0.1:8000/admin_dashboard.html or keep using Live Server on port 5500."
+Write-Host "Open http://127.0.0.1:8000/ for the exam or /login.html for administration."

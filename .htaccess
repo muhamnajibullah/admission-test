@@ -1,0 +1,21 @@
+# Always check pages and application assets for a newer server version.
+# Apache can still answer CSS/JS checks with a lightweight 304 response when
+# their files have not changed, while images and fonts remain cacheable.
+<IfModule mod_headers.c>
+  <FilesMatch "\.(?:html?|css|js)$">
+    Header set Cache-Control "no-cache, must-revalidate"
+  </FilesMatch>
+
+  <FilesMatch "\.html?$">
+    Header set Cache-Control "no-store, no-cache, must-revalidate, max-age=0"
+    Header set Pragma "no-cache"
+    Header set Expires "0"
+  </FilesMatch>
+
+  <FilesMatch "\.(?:png|jpe?g|gif|webp|svg|ico|woff2?|ttf)$">
+    Header set Cache-Control "public, max-age=604800"
+  </FilesMatch>
+</IfModule>
+
+# Let Apache use file modification time and size for conditional requests.
+FileETag MTime Size

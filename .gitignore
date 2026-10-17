@@ -11,6 +11,11 @@ venv/
 # Environment and secrets
 .env
 db.local.php
+config/database.php
+storage/uploads/questions/*
+!storage/uploads/questions/.htaccess
+!storage/uploads/questions/.gitkeep
+!storage/uploads/questions/index.html
 
 # Local runtime files
 gunicorn.pid

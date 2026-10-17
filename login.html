@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Login | Admission Test</title>
+    <link rel="stylesheet" href="css/login.css?v=admission-v5" />
+  </head>
+  <body>
+    <main class="login-page">
+      <section class="login-panel" aria-labelledby="loginTitle">
+        <div class="logo-wrap">
+          <img
+            src="Image/logo%20al%20azhar%203.png"
+            alt="Al Azhar Kelapa Gading"
+          />
+        </div>
+        <nav class="login-breadcrumb" aria-label="Breadcrumb">
+          <a href="exam.html">Admission Test</a>
+          <span aria-hidden="true">&rsaquo;</span>
+          <span aria-current="page">Admin Login</span>
+        </nav>
+        <div class="login-copy">
+          <p>Admission Test</p>
+          <h1 id="loginTitle">Admin Login</h1>
+        </div>
+        <form class="login-form" id="loginForm" novalidate>
+          <div class="field">
+            <label for="email">Email</label>
+            <div class="input-shell">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                aria-hidden="true"
+              >
+                <path d="M4 4h16v16H4z" />
+                <path d="m4 7 8 6 8-6" />
+              </svg>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                autocomplete="username"
+                placeholder="Username"
+                required
+              />
+            </div>
+          </div>
+          <div class="field">
+            <label for="password">Password</label>
+            <div class="input-shell is-password">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                aria-hidden="true"
+              >
+                <rect x="4" y="10" width="16" height="10" rx="2" />
+                <path d="M8 10V7a4 4 0 0 1 8 0v3" />
+              </svg>
+              <input
+                id="password"
+                name="password"
+                type="password"
+                autocomplete="current-password"
+                placeholder="Enter password"
+                required
+              /><button
+                class="password-toggle"
+                id="passwordToggle"
+                type="button"
+                aria-label="Show password"
+                aria-pressed="false"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M2.5 12s3.5-6 9.5-6 9.5 6 9.5 6-3.5 6-9.5 6-9.5-6-9.5-6Z" />
+                  <circle cx="12" cy="12" r="2.5" />
+                  <path class="eye-slash" d="m4 4 16 16" />
+                </svg>
+              </button>
+            </div>
+          </div>
+          <p class="login-error" id="loginError" role="alert"></p>
+          <button class="login-button" type="submit">Login</button>
+        </form>
+      </section>
+    </main>
+    <script src="js/admission-api.js?v=admission-v1"></script>
+    <script src="js/login.js?v=admission-v5"></script>
+  </body>
+</html>

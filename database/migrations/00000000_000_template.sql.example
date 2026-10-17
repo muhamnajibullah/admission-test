@@ -1,0 +1,15 @@
+-- TEMPLATE ONLY: copy this file and rename it before writing a migration.
+-- File name: YYYYMMDD_NNN_short_description.sql
+-- Version below must exactly match the file name without the .sql extension.
+-- Test locally and create a database backup before importing it on cPanel.
+-- MariaDB/MySQL DDL can commit implicitly, so a transaction is not a substitute
+-- for a backup. Add the schema_versions row only after all changes succeed.
+
+-- Example additive change:
+-- ALTER TABLE student_applications
+--   ADD COLUMN parent_phone VARCHAR(30) NULL AFTER birth_date;
+
+-- Put the actual ALTER/CREATE/DML statements above this marker.
+-- Do not use INSERT IGNORE here: a duplicate version should fail visibly.
+INSERT INTO schema_versions (version)
+VALUES ('YYYYMMDD_NNN_short_description');
